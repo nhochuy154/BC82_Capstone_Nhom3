@@ -23,8 +23,445 @@
     <link rel="stylesheet" href="./output.css" />
   </head>
   <body>
-    <h1 class="text-3xl font-bold underline text-blue-500">Hello world!</h1>
+    <header>
+      <nav class="dark:bg-gray-900 dark:border-gray-700">
+        <!-- Tạo bối cục linh hoạt cho nội dung bên trong -->
+        <div
+          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 scroll1"
+        >
+          <!-- Hiển thị logo và tên thương hiệu -->
+          <a
+            href="#"
+            class="text-lg flex items-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo rounded-full px-2 ml-2"
+          >
+            <span class="font-bold text-indigo-600">Astro</span>
+            <span class="text-slate-600">ship</span>
+            <span
+              class="uppercase mt-0.5 leading-none text-[10px] ml-1 font-bold bg-gray-200 text-slate-700 px-2 py-1 rounded-md"
+              >PRO</span
+            >
+          </a>
+          <!-- Hiển thị nút menu cho chế độ di động -->
+          <button
+            id="menuToggle"
+            data-collapse-toggle="navbar-dropdown"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-dropdown"
+            aria-expanded="false"
+          >
+            <!-- Icon menu (3 gạch ngang) -->
+            <svg
+              id="menuIcon"
+              class="w-5 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+
+            <!-- Icon "X" -->
+            <svg
+              id="closeIcon"
+              class="w-5 h-4 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <!-- Menu chính sẽ được hiển thị đầy đủ trên màn hình lớn -->
+          <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+            <!-- Hiển thị các mục menu -->
+            <ul
+              class="flex flex-col gap-1 md:gap-3 font-medium p-4 -ml-3 -mr-3 md:p-0 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            >
+              <!-- Dropdown Menu -->
+              <li class="relative">
+                <button
+                  id="dropdownNavbarLink"
+                  data-collapse-toggle="dropdownNavbar"
+                  type="button"
+                  class="flex items-center w-full py-2 px-3 text-sm text-gray-600 rounded md:hover:bg-transparent md:border-0 hover:text-indigo-600 md:p-0 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Pages
+                  <svg
+                    id="dropdownIcon"
+                    class="w-2.5 h-2.5 ms-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+
+                <!-- Dropdown items -->
+                <ul
+                  id="dropdownNavbar"
+                  class="hidden py-1 ml-3 md:ml-0 md:absolute md:top-full md:-left-4 md:mt-3 z-10 md:w-52 md:bg-white md:shadow-lg md:rounded-lg md:border md:border-gray-200 md:dark:bg-gray-700 md:dark:border-gray-600 border-l-2 border-gray-200 transition duration-300 ease-in-out transform"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 -ml-1 text-sm text-gray-600 hover:text-indigo-600 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-600 dark:hover:text-white md:dark:hover:bg-transparent"
+                      >Features
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 -ml-1 text-sm text-gray-600 hover:text-indigo-600 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-600 dark:hover:text-white md:dark:hover:bg-transparent"
+                      >Integrations
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 -ml-1 text-sm text-gray-600 hover:text-indigo-600 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-600 dark:hover:text-white md:dark:hover:bg-transparent"
+                      >Blog Details
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 -ml-1 text-sm text-gray-600 hover:text-indigo-600 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-600 dark:hover:text-white md:dark:hover:bg-transparent"
+                      >404 Page
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- Menu thả xuống hiển thị khi màn hình nhỏ hơn md -->
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 text-sm text-gray-600 rounded md:hover:bg-transparent md:border-0 hover:text-indigo-600 md:p-0 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 text-sm text-gray-600 rounded md:hover:bg-transparent md:border-0 hover:text-indigo-600 md:p-0 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 text-sm text-gray-600 rounded md:hover:bg-transparent md:border-0 hover:text-indigo-600 md:p-0 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 text-sm text-gray-600 rounded md:hover:bg-transparent md:border-0 hover:text-indigo-600 md:p-0 dark:text-white md:dark:hover:text-indigo-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >Contact</a
+                >
+              </li>
+              <!-- Nút "Get started" trên màn hình nhỏ -->
+              <li class="md:hidden flex items-center mt-3 gap-4">
+                <a
+                  href="#"
+                  class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo w-full px-5 py-2 bg-gray-100 hover:bg-gray-200 border-2 border-transparent"
+                  >Log in
+                </a>
+                <a
+                  href="#"
+                  class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo w-full px-5 py-2 bg-indigo-600 text-white hover:bg-indigo-800"
+                  >Try for Free
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="hidden md:flex items-center gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
+          >
+            <a
+              href="#"
+              class="text-sm px-2 py-1 transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo rounded-full"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-4 py-2 text-sm bg-indigo-600 text-white hover:bg-indigo-800 inline-flex items-center group gap-px"
+            >
+              <span>Try for Free</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-4 h-4 mt-px group-hover:translate-x-1 transition-transform"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+      <div class="huy"><p style="color: black">Huy Đẹp Trai</p></div>
+    </section>
+
+    <!-- JS JQUERY -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"
+      integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js"
+      integrity="sha512-KgffulL3mxrOsDicgQWA11O6q6oKeWcV00VxgfJw4TcM8XRQT8Df9EsrYxDf7tpVpfl3qcYD96BpyPvA4d1FDQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- flowbite.com -->
     <script src="./../node_modules/flowbite/dist/flowbite.min.js"></script>
+
+    <!-- JS NAVBAR Dropdown -->
+    <script>
+      // Lấy các phần tử cần thiết
+      const dropdownButton = document.getElementById("dropdownNavbarLink");
+      const dropdownMenu = document.getElementById("dropdownNavbar");
+      const dropdownIcon = document.getElementById("dropdownIcon");
+
+      // Hàm mở/đóng dropdown
+      const toggleDropdown = (event) => {
+        event.stopPropagation(); // Ngăn sự kiện lan ra ngoài
+        const isHidden = dropdownMenu.classList.contains("hidden");
+
+        // Mở menu và cập nhật trạng thái
+        if (isHidden) {
+          dropdownMenu.classList.remove("hidden");
+          dropdownIcon.classList.add("rotate-180"); // Xoay icon
+          dropdownButton.classList.add("text-indigo-600"); // Thay đổi màu nút
+        } else {
+          closeDropdown(); // Đóng menu
+        }
+      };
+
+      // Hàm đóng menu và reset trạng thái
+      const closeDropdown = () => {
+        dropdownMenu.classList.add("hidden"); // Đóng menu
+        dropdownIcon.classList.remove("rotate-180"); // Reset xoay icon
+        dropdownButton.classList.remove("text-indigo-600"); // Reset màu nút
+      };
+
+      // Lắng nghe sự kiện click vào nút để mở/đóng dropdown
+      dropdownButton.addEventListener("click", toggleDropdown);
+
+      // Lắng nghe sự kiện click ra ngoài để đóng dropdown
+      document.addEventListener("click", (event) => {
+        if (
+          !dropdownButton.contains(event.target) && // Không phải click vào nút
+          !dropdownMenu.contains(event.target) // Không phải click vào menu
+        ) {
+          closeDropdown(); // Đóng menu
+        }
+      });
+    </script>
+    <!-- JS NAVBAR Dropdown ICON -->
+    <script>
+      document
+        .getElementById("dropdownNavbarLink")
+        .addEventListener("click", function () {
+          const icon = document.getElementById("dropdownIcon");
+          icon.classList.toggle("rotate-180"); // Thêm/bỏ lớp CSS xoay 90 độ
+        });
+    </script>
+    <!-- Sự kiện scroll -->
+    <script>
+      // Lắng nghe sự kiện cuộn
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header"); // Chọn phần header
+        if (window.scrollY > 50) {
+          // Khi cuộn xuống hơn 50px
+          header.classList.add("scrolled"); // Thêm class "scrolled"
+        } else {
+          header.classList.remove("scrolled"); // Gỡ bỏ class "scrolled"
+        }
+      });
+    </script>
+    <!-- Biến đổi nút menu thành x -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menuToggle");
+        const menuIcon = document.getElementById("menuIcon");
+        const closeIcon = document.getElementById("closeIcon");
+        const navbarDropdown = document.getElementById("navbar-dropdown");
+
+        menuToggle.addEventListener("click", function () {
+          // Toggle hiển thị giữa icon menu và close
+          menuIcon.classList.toggle("hidden");
+          closeIcon.classList.toggle("hidden");
+
+          // Mở hoặc đóng menu chính
+          navbarDropdown.classList.toggle("hidden");
+
+          // Cập nhật trạng thái aria-expanded
+          const isExpanded =
+            menuToggle.getAttribute("aria-expanded") === "true";
+          menuToggle.setAttribute("aria-expanded", !isExpanded);
+        });
+      });
+    </script>
   </body>
 </html>

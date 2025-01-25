@@ -5,3 +5,52 @@
 * {
   font-family: "Inter", serif;
 }
+body,
+html {
+  background-color: white;
+  /* di chuyen tu thanh phan tren xuong duoi tu tu */
+  scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+  /* Header đi theo con trỏ chuột người dùng */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: all 0.3s ease-in-out;
+}
+.scroll1 {
+  transition: all 0.5s;
+}
+/* Kiểu dáng cho header khi cuộn xuống */
+header.scrolled .scroll1 {
+  padding: 10px 16px 10px 16px;
+  opacity: 0.94; /* Giảm độ rõ của nền */
+}
+header.scrolled {
+  border-bottom: 2px solid rgb(230 232 236);
+  backdrop-filter: blur(10px);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.596
+  ); /* Màu trắng với độ trong suốt 80% */
+}
+
+/* Thêm lớp CSS để xoay SVG */
+.rotate-90 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out; /* Hiệu ứng xoay mượt */
+}
+.huy {
+  text-align: center;
+}
+#dropdownIcon {
+  transition: transform 0.3s ease;
+}
+
+#dropdownNavbarLink {
+  transition: color 0.3s ease;
+}
