@@ -1801,18 +1801,6 @@ header.scrolled {
   /* Hiệu ứng xoay mượt */
 }
 
-.huy {
-  text-align: center;
-}
-
-#dropdownIcon {
-  transition: transform 0.3s ease;
-}
-
-#dropdownNavbarLink {
-  transition: color 0.3s ease;
-}
-
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));

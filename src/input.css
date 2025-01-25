@@ -44,13 +44,3 @@ header.scrolled {
   transform: rotate(180deg);
   transition: transform 0.3s ease-in-out; /* Hiệu ứng xoay mượt */
 }
-.huy {
-  text-align: center;
-}
-#dropdownIcon {
-  transition: transform 0.3s ease;
-}
-
-#dropdownNavbarLink {
-  transition: color 0.3s ease;
-}
