@@ -15,7 +15,8 @@ html {
 /* Header */
 header {
   /* Header đi theo con trỏ chuột người dùng */
-  position: fixed;
+  z-index: 999;
+  position: sticky;
   width: 100%;
   top: 0;
   transition: all 0.3s ease-in-out;
@@ -47,10 +48,8 @@ header.scrolled {
 .huy {
   text-align: center;
 }
-#dropdownIcon {
-  transition: transform 0.3s ease;
-}
 
-#dropdownNavbarLink {
-  transition: color 0.3s ease;
+/* Hero-Banner */
+.bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
 }
