@@ -45,9 +45,6 @@ header.scrolled {
   transform: rotate(180deg);
   transition: transform 0.3s ease-in-out; /* Hiệu ứng xoay mượt */
 }
-.huy {
-  text-align: center;
-}
 
 /* Hero-Banner */
 .bg-gradient-radial {
@@ -58,4 +55,8 @@ header.scrolled {
 .trusted {
   padding: 2rem 1rem;
   background-color: #f9fafb; /* Màu nền nhạt */
+}
+/* Supercharge */
+.supercharge {
+  background-color: #f9fafb;
 }
