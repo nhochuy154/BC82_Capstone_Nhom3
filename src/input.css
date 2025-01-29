@@ -45,9 +45,6 @@ header.scrolled {
   transform: rotate(180deg);
   transition: transform 0.3s ease-in-out; /* Hiệu ứng xoay mượt */
 }
-.huy {
-  text-align: center;
-}
 
 /* Hero-Banner */
 .bg-gradient-radial {
