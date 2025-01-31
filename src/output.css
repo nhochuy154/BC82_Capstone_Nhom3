@@ -1139,6 +1139,10 @@ input:checked + .toggle-bg {
   z-index: 50;
 }
 
+.order-first {
+  order: -9999;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1474,6 +1478,10 @@ input:checked + .toggle-bg {
 
 .scroll-m-5 {
   scroll-margin: 1.25rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .grid-cols-4 {
@@ -2517,6 +2525,10 @@ header.scrolled {
 
   .md\:order-2 {
     order: 2;
+  }
+
+  .md\:order-none {
+    order: 0;
   }
 
   .md\:col-span-3 {
