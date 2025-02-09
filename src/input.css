@@ -60,3 +60,28 @@ header.scrolled {
 .supercharge {
   background-color: #f9fafb;
 }
+
+/* BACKTOTOP */
+.backToTop {
+  z-index: 99;
+  display: block;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  text-align: center;
+  background: #5850ec;
+  box-shadow: -4px 4px 24px -10px #5850ec;
+  border-radius: 8px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.cd-top--is-visible {
+  visibility: visible;
+  opacity: 1;
+}
